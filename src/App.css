@@ -5,10 +5,11 @@
 .customerDetails {
   background-color: chocolate;
   border-style: solid;
-  width: 85%;
+  width: 40%;
   margin: auto;
   margin-bottom: 50px;
   border-radius: 30px;
+  padding-left: 10%;
 }
 
 .posts {

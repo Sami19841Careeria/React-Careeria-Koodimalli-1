@@ -17,7 +17,7 @@ useEffect(() => {
   .then(data => {
     setCustomers(data)
 })
-},[]
+},[lisäystila]
 )
 
   return (
@@ -27,7 +27,7 @@ useEffect(() => {
 
                 {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h1>
 
-                {lisäystila && <CustomerAdd />}
+                {lisäystila && <CustomerAdd setLisäystila={setLisäystila} />}
 
 
         {
