@@ -1,23 +1,44 @@
 import './App.css'
 import React, {useState} from 'react'
+import CustomerService from './services/Customer'
 
 // props on nimeltään customer
-const Customer = ({customer}) => {
+const Customer = ({customer, setIsPositive, setMessage, setShowMessage}) => {
 
 // Komponentin tilan määritys
 const [showDetails, setShowDetails] = useState(false)
 
+const deleteCustomer = (customer) => {
+    let vastaus = window.confirm(`Remove Customer ${customer.companyName}`)
+
+    if (vastaus === true) {
+    CustomerService.remove(customer.customerId)
+    .then(res => {
+        if (res.status === 200) {
+        setMessage(`Successfully removed customer ${customer.companyName}`)
+        setIsPositive(true)
+        setShowMessage(true)
+        // Toteuta ilmoituksen piilotus
+        }
+         // toteuta .catch erroria varten sis. message toiminnot
+            }
+        )
+    } // Toteuta else vaihtoehto jos poisto halutaankin perua
+}
   return (
     <div className='customerDiv'>
         
-       <h4 onMouseEnter={() => setShowDetails(true)}
-       onMouseLeave={() => setShowDetails(false)}
-       >
-           {customer.companyName}
+       <h4 onClick={() => setShowDetails(!showDetails)}>
+           {customer.companyName} 
         </h4>
 
        {showDetails && <div className="customerDetails">
+
                 <h3>{customer.companyName}</h3>
+
+                <button onClick={() => deleteCustomer(customer)}>Delete</button>
+                <button>Edit</button>
+
                 <table>
                     <thead>
                         <tr>

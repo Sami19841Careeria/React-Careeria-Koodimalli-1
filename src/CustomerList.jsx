@@ -34,7 +34,9 @@ useEffect(() => {
 
         {
             showCustomers && customers && customers.map(c => (
-                <Customer key={c.customerId} customer={c} />
+                <Customer key={c.customerId} customer={c} 
+                setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
+                />
               )
             )
         }
