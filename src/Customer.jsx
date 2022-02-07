@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import CustomerService from './services/Customer'
 
 // props on nimeltään customer
-const Customer = ({customer, setIsPositive, setMessage, setShowMessage}) => {
+const Customer = ({customer, setIsPositive, setMessage, setShowMessage, reload, reloadNow}) => {
 
 // Komponentin tilan määritys
 const [showDetails, setShowDetails] = useState(false)
@@ -18,13 +18,44 @@ const deleteCustomer = (customer) => {
         setMessage(`Successfully removed customer ${customer.companyName}`)
         setIsPositive(true)
         setShowMessage(true)
-        // Toteuta ilmoituksen piilotus
+        window.scrollBy(0, -10000) // Scrollataan ylös jotta nähdään alert :)
+
+        // Ilmoituksen piilotus
+        setTimeout(() => {
+        setShowMessage(false)},
+        5000
+        )
+        reloadNow(!reload)
         }
-         // toteuta .catch erroria varten sis. message toiminnot
+        
             }
         )
-    } // Toteuta else vaihtoehto jos poisto halutaankin perua
+        .catch(error => {
+            setMessage(error)
+            setIsPositive(false)
+            setShowMessage(true)
+            window.scrollBy(0, -10000) // Scrollataan ylös jotta nähdään alert :)
+    
+            setTimeout(() => {
+              setShowMessage(false)
+             }, 6000)
+          })
+
+    } // Jos poisto halutaankin perua
+    else {
+    setMessage('Poisto peruttu onnistuneesti.')
+        setIsPositive(true)
+        setShowMessage(true)
+        window.scrollBy(0, -10000) // Scrollataan ylös jotta nähdään alert :)
+
+        // Ilmoituksen piilotus
+        setTimeout(() => {
+        setShowMessage(false)},
+        5000
+        )
+    }
 }
+
   return (
     <div className='customerDiv'>
         

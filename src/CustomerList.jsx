@@ -10,6 +10,7 @@ const CustomerList = ({setIsPositive, setShowMessage, setMessage}) => {
 const [customers, setCustomers] = useState([])
 const [showCustomers, setShowCustomers] = useState(false)
 const [lisäystila, setLisäystila] = useState(false)
+const [reload, reloadNow] = useState(false)
 
 
 useEffect(() => {
@@ -17,7 +18,7 @@ useEffect(() => {
   .then(data => {
     setCustomers(data)
 })
-},[lisäystila]
+},[lisäystila, reload]
 )
 
   return (
@@ -34,7 +35,7 @@ useEffect(() => {
 
         {
             showCustomers && customers && customers.map(c => (
-                <Customer key={c.customerId} customer={c} 
+                <Customer key={c.customerId} customer={c} reloadNow={reloadNow} reload={reload}
                 setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
                 />
               )
