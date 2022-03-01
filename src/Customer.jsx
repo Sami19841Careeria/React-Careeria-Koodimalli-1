@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import CustomerService from './services/Customer'
 
 // props on nimeltään customer
-const Customer = ({customer, setIsPositive, setMessage, setShowMessage, reload, reloadNow}) => {
+const Customer = ({customer, editCustomer, setIsPositive, setMessage, setShowMessage, reload, reloadNow}) => {
 
 // Komponentin tilan määritys
 const [showDetails, setShowDetails] = useState(false)
@@ -68,7 +68,7 @@ const deleteCustomer = (customer) => {
                 <h3>{customer.companyName}</h3>
 
                 <button onClick={() => deleteCustomer(customer)}>Delete</button>
-                <button>Edit</button>
+                <button onClick={() => editCustomer(customer)}>Edit</button>
 
                 <table>
                     <thead>
