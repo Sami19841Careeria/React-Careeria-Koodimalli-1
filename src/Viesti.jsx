@@ -1,3 +1,8 @@
+
+////// Tämä ei ole enää käytössä sovelluksessa //////////
+
+
+/*
 import './App.css'
 import React from 'react'
 
@@ -8,4 +13,6 @@ const Viesti = (props) => (
   )
 
 export default Viesti
+
+*/
 

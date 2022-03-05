@@ -1,45 +1,42 @@
-import React, {useState} from 'react'
+// React importtia ei tarvita enää tässä komponentissa kun ei ole statea
 import './App.css'
 import Laskuri from './Laskuri'
-import Viesti from './Viesti'
+// Viesti import poistettu koska sitä toimintoa ei sisällytetä lopulliseen versioon
 import Posts from './Posts'
 import CustomerList from './CustomerList'
-import Message from './Message'
+//Message import poistettu, koska se importataan nyt list tason komponentteihin jokaiseen erikseen
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 const App = () => {
-
-// App komponentin tila
-const [showLaskuri, setShowLaskuri] = useState(false)
-// Statet messagen näyttämistä varten
-const [showMessage, setShowMessage] = useState(false)
-const [message, setMessage] = useState('')
-const [isPositive, setIsPositive] = useState(false)
-
-
-const huomio = () => {
-  alert("Huomio!")
-} 
-
+  
   return (
     <div className="App">
-        <h1>Hello from React!</h1>
+      <Router>        
 
-       {showMessage && <Message message={message} isPositive={isPositive} /> }
+          <Navbar bg="dark" variant="dark">
+            <Nav className="mr-auto">
+                <Link to={'/Customers'} className='nav-link'>Customers</Link>
+                <Link to={'/Laskuri'} className='nav-link'>Laskuri</Link>
+                <Link to={'/Posts'} className='nav-link'>Typicode posts</Link>
+            </Nav>
+          </Navbar>
+          
+          <h2>Northwind Traders</h2>
 
-        <CustomerList setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />
+          <Switch>
+                <Route path="/Customers" component={CustomerList}/>
+                <Route path="/Laskuri" component={Laskuri}/>
+                <Route path="/Posts" component={Posts}/>
 
-        <Posts />
-
-        {showLaskuri && <Laskuri huomio={huomio} />}
-
-        {showLaskuri && <button onClick={() => setShowLaskuri(!showLaskuri)}>Piilota laskuri</button>}
-
-        {!showLaskuri && <button onClick={() => setShowLaskuri(!showLaskuri)}>Näytä laskuri</button>}
-
-
-        <Viesti teksti="tervehdys app komponentista" />
-        
-    </div>
+          </Switch>
+           
+      </Router>
+          
+      </div>
   )
 }
 

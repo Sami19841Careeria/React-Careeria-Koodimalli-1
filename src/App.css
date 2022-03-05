@@ -35,11 +35,13 @@
 .customerDetails {
   background-color: chocolate;
   border-style: solid;
-  width: 40%;
+  width: 50%;
   margin: auto;
   margin-bottom: 50px;
   border-radius: 30px;
   padding-left: 10%;
+  padding-right: 10%;
+
 }
 
 .posts {
