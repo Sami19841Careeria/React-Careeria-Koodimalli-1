@@ -1,17 +1,20 @@
-// React importtia ei tarvita enää tässä komponentissa kun ei ole statea
+import React, {useState} from 'react'
 import './App.css'
 import Laskuri from './Laskuri'
-// Viesti import poistettu koska sitä toimintoa ei sisällytetä lopulliseen versioon
 import Posts from './Posts'
 import CustomerList from './CustomerList'
-//Message import poistettu, koska se importataan nyt list tason komponentteihin jokaiseen erikseen
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Message from './Message'
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 const App = () => {
+
+const [message, setMessage] = useState('')
+const [isPositive, setIsPositive] = useState(true)
+const [showMessage, setShowMessage] = useState('')
   
   return (
     <div className="App">
@@ -27,10 +30,14 @@ const App = () => {
           
           <h2>Northwind Traders</h2>
 
+          {showMessage && <Message message={message} isPositive={isPositive} />}
+
           <Switch>
-                <Route path="/Customers" component={CustomerList}/>
-                <Route path="/Laskuri" component={Laskuri}/>
-                <Route path="/Posts" component={Posts}/>
+                <Route path="/Customers"> <CustomerList setMessage={setMessage} setIsPositive={setIsPositive} 
+                setShowMessage={setShowMessage} /></Route>
+
+                <Route path="/Laskuri"> <Laskuri /></Route>
+                <Route path="/Posts"> <Posts /></Route>
 
           </Switch>
            

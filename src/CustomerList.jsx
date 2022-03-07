@@ -4,10 +4,9 @@ import CustomerService from './services/Customer'
 import Customer from './Customer'
 import CustomerAdd from './CustomerAdd'
 import CustomerEdit from './CustomerEdit'
-// Message pitää importata nyt list tason koponentteihin
 import Message from './Message'
 
-const CustomerList = () => {
+const CustomerList = ({setMessage, setIsPositive, setShowMessage}) => {
 
 // Komponentin tilojen ja sitä muuttavien set metodien määritys, sekä alustaminen.
 const [customers, setCustomers] = useState([])
@@ -17,10 +16,6 @@ const [muokkaustila, setMuokkaustila] = useState(false)
 const [reload, reloadNow] = useState(false)
 const [muokattavaCustomer, setMuokattavaCustomer] = useState(false)
 const [search, setSearch] = useState("")
-// Messageen liittyvät statet löytyykin nyt näistä list -tason komponenteista
-const [message, setMessage] = useState('')
-const [isPositive, setIsPositive] = useState(true)
-const [showMessage, setShowMessage] = useState('')
 
 // UseEffect ajetaan aina alussa kerran
 useEffect(() => {
@@ -46,9 +41,6 @@ const editCustomer = (customer) => {
     <>
         <h1><nobr style={{ cursor: 'pointer' }}
                 onClick={() => setShowCustomers(!showCustomers)}>Customers</nobr>
-
-                {/* Message komponentti rederöityy nyt list tason komponentteissa */}
-                {showMessage && <Message message={message} isPositive={isPositive} />}
 
                 {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h1>
 
