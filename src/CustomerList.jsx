@@ -4,7 +4,6 @@ import CustomerService from './services/Customer'
 import Customer from './Customer'
 import CustomerAdd from './CustomerAdd'
 import CustomerEdit from './CustomerEdit'
-import Message from './Message'
 
 const CustomerList = ({setMessage, setIsPositive, setShowMessage}) => {
 
@@ -48,7 +47,6 @@ const editCustomer = (customer) => {
                 <input placeholder="Search by company name" value={search} onChange={handleSearchInputChange} />
                 }
 
-
                 {lisäystila && <CustomerAdd setLisäystila={setLisäystila} 
                 setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
                 />}
@@ -57,7 +55,6 @@ const editCustomer = (customer) => {
                 setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
                 muokattavaCustomer={muokattavaCustomer}
                 />}
-
 
         {
             !lisäystila && !muokkaustila && showCustomers && customers && customers.map(c =>
