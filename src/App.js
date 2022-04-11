@@ -3,6 +3,7 @@ import './App.css'
 import Laskuri from './Laskuri'
 import Posts from './Posts'
 import CustomerList from './CustomerList'
+import UserList from './UserList'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -23,6 +24,7 @@ const [showMessage, setShowMessage] = useState('')
           <Navbar bg="dark" variant="dark">
             <Nav className="mr-auto">
                 <Link to={'/Customers'} className='nav-link'>Customers</Link>
+                <Link to={'/Users'} className='nav-link'>Users</Link>
                 <Link to={'/Laskuri'} className='nav-link'>Laskuri</Link>
                 <Link to={'/Posts'} className='nav-link'>Typicode posts</Link>
             </Nav>
@@ -34,6 +36,9 @@ const [showMessage, setShowMessage] = useState('')
 
           <Switch>
                 <Route path="/Customers"> <CustomerList setMessage={setMessage} setIsPositive={setIsPositive} 
+                setShowMessage={setShowMessage} /></Route>
+
+          <Route path="/Users"> <UserList setMessage={setMessage} setIsPositive={setIsPositive} 
                 setShowMessage={setShowMessage} /></Route>
 
                 <Route path="/Laskuri"> <Laskuri /></Route>

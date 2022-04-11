@@ -1,14 +1,14 @@
 import axios from "axios"
 
-const baseUrl = "https://localhost:44327/api/customers"
+const baseUrl = "https://localhost:44327/api/users"
 
 const getAll = () => {
     const request = axios.get(baseUrl)
     return request.then(response => response.data)
 }
 
-const create = newCustomer => {
-    return axios.post(baseUrl, newCustomer)
+const create = newUser => {
+    return axios.post(baseUrl, newUser)
 }
 
 const remove = id => {
@@ -16,7 +16,7 @@ const remove = id => {
 }
 
 const update = (object) => {
-    return axios.put(`${baseUrl}/${object.customerId}`, object)
+    return axios.put(`${baseUrl}/${object.userId}`, object)
 }
 
 

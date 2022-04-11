@@ -1,6 +1,6 @@
 import './App.css'
 
-const Message = ({ message, isPositive }) => {
+const Message = ({isPositive, message}) => {
 
     let tyyli = '';
 
