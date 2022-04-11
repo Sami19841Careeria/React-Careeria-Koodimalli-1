@@ -75,7 +75,7 @@ const handleSubmit = (event) => {
                     onChange={({ target }) => setNewEmail(target.value)} />
             </div>
             <div>
-                <input type="text" value={newAccesslevelId} placeholder="Access level"
+                <input type="number" value={newAccesslevelId} placeholder="Access level"
                     onChange={({ target }) => setNewAccesslevelId(target.value)} />
             </div>
             <div>
@@ -90,7 +90,7 @@ const handleSubmit = (event) => {
          <input type='submit' value='save' />
          <input type='button' value='back' onClick={() => setLisäystila(false)} />
        </form>
-       
+
     </div>
   )
 }
