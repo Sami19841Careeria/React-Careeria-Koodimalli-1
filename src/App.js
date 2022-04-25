@@ -8,8 +8,10 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Message from './Message'
+import Login from './Login'
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+
 
 const App = () => {
 
@@ -19,6 +21,10 @@ const [showMessage, setShowMessage] = useState('')
   
   return (
     <div className="App">
+
+    <Login setMessage={setMessage} setIsPositive={setIsPositive} 
+    setShowMessage={setShowMessage} />
+
       <Router>        
 
           <Navbar bg="dark" variant="dark">
