@@ -18,21 +18,29 @@ const App = () => {
 const [message, setMessage] = useState('')
 const [isPositive, setIsPositive] = useState(true)
 const [showMessage, setShowMessage] = useState('')
+const [loggedInUser, setLoggedInUser] = useState('')
+
+// Logout napin tapahtumankäsittelijä
+const logout = () => {
+  localStorage.clear()
+  setLoggedInUser('')
+}
   
   return (
     <div className="App">
 
-    <Login setMessage={setMessage} setIsPositive={setIsPositive} 
-    setShowMessage={setShowMessage} />
+      {!loggedInUser && <Login setMessage={setMessage} setIsPositive={setIsPositive} 
+                setShowMessage={setShowMessage} setLoggedInUser={setLoggedInUser} />}
 
+{ loggedInUser && 
       <Router>        
-
           <Navbar bg="dark" variant="dark">
             <Nav className="mr-auto">
                 <Link to={'/Customers'} className='nav-link'>Customers</Link>
                 <Link to={'/Users'} className='nav-link'>Users</Link>
                 <Link to={'/Laskuri'} className='nav-link'>Laskuri</Link>
                 <Link to={'/Posts'} className='nav-link'>Typicode posts</Link>
+                <button onClick={() => logout()}>Logout</button>
             </Nav>
           </Navbar>
           
@@ -53,6 +61,8 @@ const [showMessage, setShowMessage] = useState('')
           </Switch>
            
       </Router>
+
+    }
           
       </div>
   )
