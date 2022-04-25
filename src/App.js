@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './App.css'
 import Laskuri from './Laskuri'
 import Posts from './Posts'
@@ -19,6 +19,15 @@ const [message, setMessage] = useState('')
 const [isPositive, setIsPositive] = useState(true)
 const [showMessage, setShowMessage] = useState('')
 const [loggedInUser, setLoggedInUser] = useState('')
+
+
+useEffect(() => {
+  let storedUser = localStorage.getItem("username")
+  if (storedUser !== null) {
+    setLoggedInUser(storedUser)
+  }
+},[])
+
 
 // Logout napin tapahtumankäsittelijä
 const logout = () => {
