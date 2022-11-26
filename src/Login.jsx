@@ -18,11 +18,13 @@ const handleSubmit = (event) => {
         password: md5(password) // Salataan md5 kirjaston metodilla
     }
 
+    //console.log(userForAuth)
+
     // Käytetään services/Auth.js tiedoston metodia
     LoginService.authenticate(userForAuth)
     .then(response => {
         if (response.status === 200) {
-     
+
         // Talletetaan tietoja selaimen local storageen (f12 application välilehti)
         localStorage.setItem("username", response.data.username)
         localStorage.setItem("accesslevelId", response.data.accesslevelId)
