@@ -12,7 +12,7 @@ const deleteProduct = (product) => {
     let vastaus = window.confirm(`Remove Product ${product.productName}`)
 
     if (vastaus === true) {
-    ProductService.remove(product.productId)
+    ProductService.remove(product.productName)
     .then(res => {
         if (res.status === 200) {
         setMessage(`Successfully removed product ${product.productName}`)
@@ -57,7 +57,7 @@ const deleteProduct = (product) => {
 }
 
   return (
-    <div className='productDiv'>
+    <div className='customerDiv'>
         
        <h4 onClick={() => setShowDetails(!showDetails)}>
            {product.productName} , {product.country}
