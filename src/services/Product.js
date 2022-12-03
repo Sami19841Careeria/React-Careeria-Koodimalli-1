@@ -26,12 +26,10 @@ const create = newProduct => {
 }
 
 
-const remove = productName => {
-    const config = {
-        headers: { Authorization: token },
-    }
-    return axios.delete(`${baseUrl}/special/${productName.productName}`, config)
+const remove = id => {
+    return axios.delete(`${baseUrl}/special/${id}`)
 }
+
 
 const update = (object) => {
     const config = {
