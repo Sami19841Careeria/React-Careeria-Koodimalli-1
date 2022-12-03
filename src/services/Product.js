@@ -27,7 +27,7 @@ const create = newProduct => {
 
 
 const remove = id => {
-    return axios.delete(`${baseUrl}/catid/${id}`)
+    return axios.delete(baseUrl, id)
 }
 
 
