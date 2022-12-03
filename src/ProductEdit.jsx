@@ -65,26 +65,32 @@ const handleSubmit = (event) => {
                 <input type="text" value={newProductId} disabled />
             </div>
             <div>
+                <label>Product Name</label>
                 <input type="text" value={newProductName} placeholder="Product Name"
                     onChange={({ target }) => setNewProductName(target.value)} />
             </div>
             <div>
+                <label>Supplier ID</label>
                 <input type="text" value={newSupplierId} placeholder="Supplier ID"
                     onChange={({ target }) => setNewSupplierId(target.value)} />
             </div>
             <div>
+                <label>Category ID</label>
                 <input type="text" value={newCategoryId} placeholder="Category ID"
                     onChange={({ target }) => setNewCategoryId(target.value)} />
             </div>
             <div>
+                <label>Quantity Per Unit</label>
                 <input type="text" value={newQuantityPerUnit} placeholder="Quantity Per Unit"
                     onChange={({ target }) => setNewQuantityPerUnit(target.value)} />
             </div>
             <div>
+                <label>Unit Price</label>
                 <input type="text" value={newUnitPrice} placeholder="Unit Price"
                     onChange={({ target }) => setNewUnitPrice(target.value)} />
             </div>
             <div>
+                <label>Units In Stock</label>
                 <input type="text" value={newUnitsInStock} placeholder="Units In Stock"
                     onChange={({ target }) => setNewUnitsInStock(target.value)} />
             </div>
