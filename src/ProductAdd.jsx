@@ -2,12 +2,12 @@ import './App.css'
 import React, {useState} from 'react'
 import ProductService from './services/Product'
 
-const ProductAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage, lisättäväProduct}) => {
+const ProductAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage}) => {
 
 // Komponentin tilan määritys
 
 const [newProductName, setNewProductName] = useState('')
-const [newProductId, setNewProductId] = useState(lisättäväProduct.productId)
+const [newProductId, setNewProductId] = useState('')
 const [newSupplierId, setNewSupplierId] = useState('')
 const [newCategoryId, setNewCategoryId] = useState('')
 const [newQuantityPerUnit, setNewQuantityPerUnit] = useState('')
@@ -66,8 +66,7 @@ const handleSubmit = (event) => {
 
        <form onSubmit={handleSubmit}>
        <div>
-                <input type="text" value={newProductId} placeholder="Product ID"
-                    onChange={({ target }) => setNewProductId(target.value)} required />
+                <input type="text" value={newProductId} disabled />
             </div>
             <div>
                 <input type="text" value={newProductName} placeholder="Product Name"
