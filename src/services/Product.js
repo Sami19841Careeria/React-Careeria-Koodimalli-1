@@ -22,7 +22,10 @@ const getAll = () => {
 
 
 const create = newProduct => {
-    return axios.post(baseUrl, newProduct)
+    const config = {
+        headers: { Authorization: token },
+    }
+    return axios.post(baseUrl, newProduct, config)
 }
 
 

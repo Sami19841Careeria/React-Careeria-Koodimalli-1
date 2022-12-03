@@ -7,6 +7,7 @@ const ProductEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessage
 // Komponentin tilan määritys
 
     const [newProductId, setNewProductId] = useState(muokattavaProduct.productId)
+    const [newProductName, setNewProductName] = useState(muokattavaProduct.productName)
     const [newSupplierId, setNewSupplierId] = useState(muokattavaProduct.supplierId)
     const [newCategoryId, setNewCategoryId] = useState(muokattavaProduct.categoryId)
     const [newQuantityPerUnit, setNewQuantityPerUnit] = useState(muokattavaProduct.quantityPerUnit)
@@ -20,7 +21,8 @@ const ProductEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessage
 const handleSubmit = (event) => {
     event.preventDefault()
     var newProduct = {
-        productId: newProductId.toUpperCase(),
+        productId: newProductId,
+        productName: newProductName,
         supplierId: newSupplierId,
         categoryId: newCategoryId,
         quantityPerUnit: newQuantityPerUnit,
@@ -61,6 +63,10 @@ const handleSubmit = (event) => {
        <form onSubmit={handleSubmit}>
        <div>
                 <input type="text" value={newProductId} disabled />
+            </div>
+            <div>
+                <input type="text" value={newProductName} placeholder="Product Name"
+                    onChange={({ target }) => setNewProductName(target.value)} />
             </div>
             <div>
                 <input type="text" value={newSupplierId} placeholder="Supplier ID"
