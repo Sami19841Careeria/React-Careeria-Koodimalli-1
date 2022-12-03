@@ -65,6 +65,9 @@ const logout = () => {
           <Route path="/Users"> <UserList setMessage={setMessage} setIsPositive={setIsPositive} 
                 setShowMessage={setShowMessage} /></Route>
 
+                <Route path="/Products"> <ProductList setMessage={setMessage} setIsPositive={setIsPositive} 
+                setShowMessage={setShowMessage} /></Route>
+
                 <Route path="/Laskuri"> <Laskuri /></Route>
                 <Route path="/Posts"> <Posts /></Route>
 

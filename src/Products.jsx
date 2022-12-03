@@ -15,7 +15,7 @@ const deleteProducts = (product) => {
     ProductService.remove(product.productId)
     .then(res => {
         if (res.status === 200) {
-        setMessage(`Successfully removed customer ${product.productName}`)
+        setMessage(`Successfully removed product ${product.productName}`)
         setIsPositive(true)
         setShowMessage(true)
         window.scrollBy(0, -10000) // Scrollataan ylös jotta nähdään alert :)
