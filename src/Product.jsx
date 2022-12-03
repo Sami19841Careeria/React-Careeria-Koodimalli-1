@@ -57,7 +57,7 @@ const deleteProduct = (product) => {
 }
 
   return (
-    <div className='customerDiv'>
+    <div className='productDiv'>
         
        <h4 onClick={() => setShowDetails(!showDetails)}>
            {product.productName} , {product.country}

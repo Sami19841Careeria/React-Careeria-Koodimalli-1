@@ -1,4 +1,5 @@
 import axios from "axios"
+import Product from "../Product"
 
 //const baseUrl = "https://localhost:44327/api/customers"
 const baseUrl = "https://northwindbackend.azurewebsites.net/api/products"
@@ -22,10 +23,7 @@ const getAll = () => {
 
 
 const create = newProduct => {
-    const config = {
-        headers: { Authorization: token },
-    }
-    return axios.post(baseUrl, newProduct, config)
+    return axios.post(baseUrl, newProduct)
 }
 
 
@@ -44,4 +42,4 @@ const update = (object) => {
 }
 
 
-export default { getAll, create, remove, update, setToken }
+export default new Product()
