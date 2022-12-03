@@ -22,7 +22,7 @@ const getAll = () => {
 
 
 const create = newProduct => {
-    return axios.post(baseUrl, newProduct, config)
+    return axios.post(baseUrl, newProduct)
 }
 
 
