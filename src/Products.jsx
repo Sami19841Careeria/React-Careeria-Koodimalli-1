@@ -1,6 +1,6 @@
 import './App.css'
 import React, {useState} from 'react'
-import ProductService from './services/Products'
+import ProductService from './services/Product'
 
 // props on nimeltään customer
 const Products = ({products, editProduct, setIsPositive, setMessage, setShowMessage, reload, reloadNow}) => {
