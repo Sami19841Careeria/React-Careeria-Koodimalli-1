@@ -65,20 +65,9 @@ const handleSubmit = (event) => {
        <h2>Product add</h2>
 
        <form onSubmit={handleSubmit}>
-       <div>
-                <input type="text" value={newProductId} disabled />
-            </div>
             <div>
                 <input type="text" value={newProductName} placeholder="Product Name"
                     onChange={({ target }) => setNewProductName(target.value)} />
-            </div>
-            <div>
-                <input type="text" value={newSupplierId} placeholder="Supplier ID"
-                    onChange={({ target }) => setNewSupplierId(target.value)} />
-            </div>
-            <div>
-                <input type="text" value={newCategoryId} placeholder="Category ID"
-                    onChange={({ target }) => setNewCategoryId(target.value)} />
             </div>
             <div>
                 <input type="text" value={newQuantityPerUnit} placeholder="Quantity Per Unit"
