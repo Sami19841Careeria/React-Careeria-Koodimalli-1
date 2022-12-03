@@ -20,10 +20,10 @@ const [newUnitsInStock, setNewUnitsInStock] = useState('')
 const handleSubmit = (event) => {
       event.preventDefault()
       var newProduct = {
-        productId: newProductId,
+        // productId: newProductId,
         productName: newProductName,
-        supplierId: newSupplierId,
-        categoryId: newCategoryId,
+        // supplierId: newSupplierId,
+        // categoryId: newCategoryId,
         quantityPerUnit: newQuantityPerUnit,
         unitPrice: newUnitPrice,
         unitsInStock: newUnitsInStock

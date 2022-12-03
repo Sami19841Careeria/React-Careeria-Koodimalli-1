@@ -21,8 +21,8 @@ const getAll = () => {
 }
 
 
-const create = newUser => {
-    return axios.post(baseUrl, newUser)
+const create = newProduct => {
+    return axios.post(baseUrl, newProduct)
 }
 
 
