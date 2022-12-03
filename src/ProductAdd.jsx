@@ -2,12 +2,12 @@ import './App.css'
 import React, {useState} from 'react'
 import ProductService from './services/Product'
 
-const ProductAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage}) => {
+const ProductAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage, lisättäväProduct}) => {
 
 // Komponentin tilan määritys
 
 const [newProductName, setNewProductName] = useState('')
-const [newProductId, setNewProductId] = useState(newProductId)
+const [newProductId, setNewProductId] = useState(lisättäväProduct.productId)
 const [newSupplierId, setNewSupplierId] = useState('')
 const [newCategoryId, setNewCategoryId] = useState('')
 const [newQuantityPerUnit, setNewQuantityPerUnit] = useState('')
@@ -20,7 +20,7 @@ const [newUnitsInStock, setNewUnitsInStock] = useState('')
 const handleSubmit = (event) => {
       event.preventDefault()
       var newProduct = {
-        productId: newProductId.toUpperCase(),
+        productId: newProductId,
         productName: newProductName,
         supplierId: newSupplierId,
         categoryId: newCategoryId,

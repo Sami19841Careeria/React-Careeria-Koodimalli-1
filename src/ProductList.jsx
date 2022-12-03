@@ -14,6 +14,7 @@ const [lisäystila, setLisäystila] = useState(false)
 const [muokkaustila, setMuokkaustila] = useState(false)
 const [reload, reloadNow] = useState(false)
 const [muokattavaProduct, setMuokattavaProduct] = useState(false)
+const [lisättäväProduct, setLisättäväProduct] = useState(false)
 const [search, setSearch] = useState("")
 
 // UseEffect ajetaan aina alussa kerran
