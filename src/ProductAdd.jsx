@@ -6,7 +6,8 @@ const ProductAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage})
 
 // Komponentin tilan määritys
 
-const [newProductId, setNewProductId] = useState('')
+const [newProductName, setNewProductName] = useState('')
+const [newProductId, setNewProductId] = useState(newProductId)
 const [newSupplierId, setNewSupplierId] = useState('')
 const [newCategoryId, setNewCategoryId] = useState('')
 const [newQuantityPerUnit, setNewQuantityPerUnit] = useState('')
@@ -20,6 +21,7 @@ const handleSubmit = (event) => {
       event.preventDefault()
       var newProduct = {
         productId: newProductId.toUpperCase(),
+        productName: newProductName,
         supplierId: newSupplierId,
         categoryId: newCategoryId,
         quantityPerUnit: newQuantityPerUnit,
@@ -34,7 +36,7 @@ const handleSubmit = (event) => {
     ProductService.create(newProduct)
     .then(response => {
       if (response.status === 200) {
-       setMessage("Added new Product: " + newProduct.ProductName)
+       setMessage("Added new Product: " + newProduct.productName)
        setIsPositive(true)
        setShowMessage(true)
       
@@ -66,6 +68,10 @@ const handleSubmit = (event) => {
        <div>
                 <input type="text" value={newProductId} placeholder="Product ID"
                     onChange={({ target }) => setNewProductId(target.value)} required />
+            </div>
+            <div>
+                <input type="text" value={newProductName} placeholder="Product Name"
+                    onChange={({ target }) => setNewProductName(target.value)} />
             </div>
             <div>
                 <input type="text" value={newSupplierId} placeholder="Supplier ID"
