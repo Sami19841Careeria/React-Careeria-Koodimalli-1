@@ -8,7 +8,7 @@ import ProductEdit from './ProductEdit'
 const ProductList = ({setMessage, setIsPositive, setShowMessage}) => {
 
 // Komponentin tilojen ja sitä muuttavien set metodien määritys, sekä alustaminen.
-const [product, setProducts] = useState([])
+const [products, setProducts] = useState([])
 const [showProducts, setShowProducts] = useState(false)
 const [lisäystila, setLisäystila] = useState(false)
 const [muokkaustila, setMuokkaustila] = useState(false)
@@ -36,8 +36,8 @@ useEffect(() => {
     setSearch(event.target.value.toLowerCase())
 }
 
-const editProduct = (product) => {
-  setMuokattavaProduct(product)
+const editProduct = (products) => {
+  setMuokattavaProduct(products)
   setMuokkaustila(true)
 }
 

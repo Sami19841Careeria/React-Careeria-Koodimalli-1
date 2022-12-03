@@ -3,12 +3,12 @@ import React, {useState} from 'react'
 import ProductService from './services/Product'
 
 // props on nimeltään customer
-const Products = ({products, editProduct, setIsPositive, setMessage, setShowMessage, reload, reloadNow}) => {
+const Product = ({product, editProduct, setIsPositive, setMessage, setShowMessage, reload, reloadNow}) => {
 
 // Komponentin tilan määritys
 const [showDetails, setShowDetails] = useState(false)
 
-const deleteProducts = (product) => {
+const deleteProduct = (product) => {
     let vastaus = window.confirm(`Remove Product ${product.productName}`)
 
     if (vastaus === true) {
@@ -88,4 +88,4 @@ const deleteProducts = (product) => {
   )
 }
 
-export default Products
+export default Product
