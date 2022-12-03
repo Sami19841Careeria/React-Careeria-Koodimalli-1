@@ -46,6 +46,7 @@ const logout = () => {
           <Navbar bg="dark" variant="dark">
             <Nav className="mr-auto">
                 <Link to={'/Customers'} className='nav-link'>Customers</Link>
+                <Link to={'/Products'} className='nav-link'>Products</Link>
                 <Link to={'/Users'} className='nav-link'>Users</Link>
                 <Link to={'/Laskuri'} className='nav-link'>Laskuri</Link>
                 <Link to={'/Posts'} className='nav-link'>Typicode posts</Link>
