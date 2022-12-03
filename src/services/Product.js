@@ -26,8 +26,8 @@ const create = newProduct => {
 }
 
 
-const remove = () => {
-    return axios.delete(`https://northwindbackend.azurewebsites.net/api/products/special/makrilli`)
+const remove = id => {
+    return axios.delete(`${baseUrl}/catid/${id}`)
 }
 
 
