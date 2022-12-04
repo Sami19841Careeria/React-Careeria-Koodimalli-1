@@ -6,7 +6,7 @@ const ProductEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessage
 
 // Komponentin tilan määritys
 
-    // const [newProductId, setNewProductId] = useState(muokattavaProduct.productId)
+    const [newProductId, setNewProductId] = useState(muokattavaProduct.productId)
     const [newProductName, setNewProductName] = useState(muokattavaProduct.productName)
     const [newSupplierId, setNewSupplierId] = useState(muokattavaProduct.supplierId)
     const [newCategoryId, setNewCategoryId] = useState(muokattavaProduct.categoryId)
