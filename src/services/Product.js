@@ -34,11 +34,11 @@ const remove = id => {
 }
 
 
-const update = (object) => {
+const update = id => {
     const config = {
         headers: { Authorization: token },
     }
-    return axios.put(`${baseUrl}/${object}`, object, config)
+    return axios.put(`${baseUrl}/${id}`, config)
 }
 
 
