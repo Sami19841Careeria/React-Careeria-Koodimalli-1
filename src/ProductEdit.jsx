@@ -33,7 +33,7 @@ const handleSubmit = (event) => {
     ProductService.update(newProduct)
     .then(response => {
       if (response.status === 200) {
-       setMessage("Edited Product: " + newProduct.productName)
+       setMessage("Edited Product: " + newProductName)
        setIsPositive(true)
        setShowMessage(true)
       
@@ -72,13 +72,11 @@ const handleSubmit = (event) => {
             </div>
             <div>
                 <label>Supplier ID</label>
-                <input type="text" value={newSupplierId} placeholder="Supplier ID"
-                    onChange={({ target }) => setNewSupplierId(target.value)} />
+                <input type="text" value={newSupplierId} disabled />
             </div>
             <div>
                 <label>Category ID</label>
-                <input type="text" value={newCategoryId} placeholder="Category ID"
-                    onChange={({ target }) => setNewCategoryId(target.value)} />
+                <input type="text" value={newCategoryId} disabled />
             </div>
             <div>
                 <label>Quantity Per Unit</label>
