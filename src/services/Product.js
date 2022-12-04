@@ -34,7 +34,7 @@ const remove = id => {
 }
 
 
-const update = () => {
+const update = (id) => {
     return axios.put(`${baseUrl}/${id}`)
 }
 
