@@ -1,4 +1,5 @@
 import axios from "axios"
+import React, {useState, useEffect} from 'react'
 
 //const baseUrl = "https://localhost:44327/api/customers"
 const baseUrl = "https://northwindbackend.azurewebsites.net/api/products"
@@ -26,15 +27,12 @@ const create = newProduct => {
 }
 
 
-useEffect(() => {
-    // DELETE request using axios with error handling
-    axios.delete('https://northwindbackend.azurewebsites.net/api/products/catid/1')
-        .then(response => setStatus('Delete successful'))
-        .catch(error => {
-            setErrorMessage(error.message);
-            console.error('There was an error!', error);
-        });
-}, []);
+const remove = id => {
+    const config = {
+        headers: { Authorization: token },
+    }
+    return axios.delete(`${baseUrl}/catid/${id}`, config)
+}
 
 
 const update = (object) => {
@@ -45,4 +43,4 @@ const update = (object) => {
 }
 
 
-export default { getAll, create, remove, update, setToken }
+export default { getAll, create, update, setToken }
