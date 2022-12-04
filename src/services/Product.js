@@ -1,5 +1,4 @@
 import axios from "axios"
-import React, {useState, useEffect} from 'react'
 
 //const baseUrl = "https://localhost:44327/api/customers"
 const baseUrl = "https://northwindbackend.azurewebsites.net/api/products"
@@ -43,4 +42,4 @@ const update = (object) => {
 }
 
 
-export default { getAll, create, update, setToken }
+export default { getAll, create, remove, update, setToken }
