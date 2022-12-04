@@ -30,10 +30,10 @@ const handleSubmit = (event) => {
         unitsInStock: newUnitsInStock
     }    
 
-    ProductService.update(newProduct)
+    ProductService.update(newProduct.productId)
     .then(response => {
       if (response.status === 200) {
-       setMessage("Edited Product: " + newProductName)
+       setMessage("Edited Product: " + newProduct.productName)
        setIsPositive(true)
        setShowMessage(true)
       
@@ -48,7 +48,7 @@ const handleSubmit = (event) => {
       .catch(error => {
         setMessage(error)
         setIsPositive(false)
-        // setShowMessage(true)
+        setShowMessage(true)
 
         setTimeout(() => {
           setShowMessage(false)
