@@ -1,21 +1,21 @@
 import './App.css'
 import React, {useState} from 'react'
-import ProductService from './services/Product'
+import UserService from './services/User'
 
-// props on nimeltään Product
-const Product = ({product, editProduct, setIsPositive, setMessage, setShowMessage, reload, reloadNow}) => {
+// props on nimeltään User
+const User = ({user, editUser, setIsPositive, setMessage, setShowMessage, reload, reloadNow}) => {
 
 // Komponentin tilan määritys
 const [showDetails, setShowDetails] = useState(false)
 
-const deleteProduct = (product) => {
-    let vastaus = window.confirm(`Remove Product ${product.productName}`)
+const deleteUser = (user) => {
+    let vastaus = window.confirm(`Remove User ${user.userName}`)
 
     if (vastaus === true) {
-    ProductService.remove(product.productId)
+    UserService.remove(user.userId)
     .then(res => {
         if (res.status === 200) {
-        setMessage(`Successfully removed product ${product.productName}`)
+        setMessage(`Successfully removed user ${user.userName}`)
         setIsPositive(true)
         setShowMessage(true)
         window.scrollBy(0, -10000) // Scrollataan ylös jotta nähdään alert :)
@@ -57,30 +57,30 @@ const deleteProduct = (product) => {
 }
 
   return (
-    <div className='productDiv'>
+    <div className='userDiv'>
         
        <h4 onClick={() => setShowDetails(!showDetails)}>
-           {product.productName} , {product.country}
+           {user.userId} , {user.userName}
         </h4>
 
-       {showDetails && <div className="productDetails">
+       {showDetails && <div className="userDetails">
 
-                <h3>{product.productName}</h3>
+                <h3>{user.userName}</h3>
 
-                <button onClick={() => deleteProduct(product)}>Delete</button>
-                <button onClick={() => editProduct(product)}>Edit</button>
+                <button onClick={() => deleteUser(user)}>Delete</button>
+                <button onClick={() => editUser(user)}>Edit</button>
 
                 <table>
                     <thead>
                         <tr>
-                            <th>Product Name</th>
-                            <th>Country</th>
+                            <th>User ID</th>
+                            <th>Username</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{product.productName}</td>
-                            <td>{product.country}</td>
+                            <td>{user.userId}</td>
+                            <td>{user.userName}</td>
                         </tr>
                     </tbody>
                 </table></div>}
@@ -88,4 +88,4 @@ const deleteProduct = (product) => {
   )
 }
 
-export default Product
+export default User

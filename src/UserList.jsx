@@ -2,6 +2,7 @@ import './App.css'
 import React, {useState, useEffect} from 'react'
 import UserService from './services/User'
 import UserAdd from './UserAdd'
+import UserEdit from './UserEdit'
 
 const UserList = ({setMessage, setIsPositive, setShowMessage}) => {
 
@@ -40,6 +41,11 @@ const editUsers = (user) => {
             setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />}
 
             {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h1>
+
+            {muokkaustila && <UserEdit setMuokkaustila={setMuokkaustila} 
+                setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
+                muokattavaUser={muokattavaUser}
+                />}
 
             {!lisäystila && !muokkaustila &&
             <input placeholder="Search by Last Name" value={search} onChange={handleSearchInputChange} />
