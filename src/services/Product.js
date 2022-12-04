@@ -26,9 +26,15 @@ const create = newProduct => {
 }
 
 
-const remove = id => {
-    return axios.delete(baseUrl, id)
-}
+useEffect(() => {
+    // DELETE request using axios with error handling
+    axios.delete('https://northwindbackend.azurewebsites.net/api/products/catid/1')
+        .then(response => setStatus('Delete successful'))
+        .catch(error => {
+            setErrorMessage(error.message);
+            console.error('There was an error!', error);
+        });
+}, []);
 
 
 const update = (object) => {
