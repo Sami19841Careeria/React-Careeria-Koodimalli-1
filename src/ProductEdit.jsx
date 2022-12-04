@@ -30,7 +30,7 @@ const handleSubmit = (event) => {
         unitsInStock: newUnitsInStock
     }    
 
-    ProductService.update(newProduct)
+    ProductService.update(newProduct.productId)
     .then(response => {
       if (response.status === 200) {
        setMessage("Edited Product: " + newProduct.productName)
