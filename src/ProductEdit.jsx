@@ -6,7 +6,7 @@ const ProductEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessage
 
 // Komponentin tilan määritys
 
-    const [newProductId, setNewProductId] = useState(muokattavaProduct.productId)
+    // const [newProductId, setNewProductId] = useState(muokattavaProduct.productId)
     const [newProductName, setNewProductName] = useState(muokattavaProduct.productName)
     const [newSupplierId, setNewSupplierId] = useState(muokattavaProduct.supplierId)
     const [newCategoryId, setNewCategoryId] = useState(muokattavaProduct.categoryId)
@@ -21,7 +21,7 @@ const ProductEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessage
 const handleSubmit = (event) => {
     event.preventDefault()
     var newProduct = {
-        productId: newProductId,
+        // productId: newProductId,
         productName: newProductName,
         supplierId: newSupplierId,
         categoryId: newCategoryId,
