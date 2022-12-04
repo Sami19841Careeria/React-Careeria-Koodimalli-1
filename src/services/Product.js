@@ -38,7 +38,7 @@ const update = (object) => {
     const config = {
         headers: { Authorization: token },
     }
-    return axios.put(`${baseUrl}/${object.productId}`, object, config)
+    return axios.put(`${baseUrl}/${object}`, object, config)
 }
 
 
