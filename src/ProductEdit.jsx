@@ -62,6 +62,7 @@ const handleSubmit = (event) => {
 
        <form onSubmit={handleSubmit}>
        <div>
+                <label>Product ID</label>
                 <input type="text" value={newProductId} disabled />
             </div>
             <div>
