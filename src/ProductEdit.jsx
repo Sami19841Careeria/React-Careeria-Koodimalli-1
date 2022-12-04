@@ -21,7 +21,7 @@ const ProductEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessage
 const handleSubmit = (event) => {
     event.preventDefault()
     var newProduct = {
-        // productId: newProductId,
+        productId: newProductId,
         productName: newProductName,
         supplierId: newSupplierId,
         categoryId: newCategoryId,
@@ -30,7 +30,7 @@ const handleSubmit = (event) => {
         unitsInStock: newUnitsInStock
     }    
 
-    ProductService.update(newProduct.productId)
+    ProductService.update(newProduct)
     .then(response => {
       if (response.status === 200) {
        setMessage("Edited Product: " + newProduct.productName)

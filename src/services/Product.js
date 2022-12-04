@@ -33,10 +33,11 @@ const remove = id => {
     return axios.delete(`${baseUrl}/${id}`, config)
 }
 
-
-const update = (id) => {
-    return axios.put(`${baseUrl}/${id}`)
+const update = (object) => {
+    const config = {
+        headers: { Authorization: token },
+    }
+    return axios.put(`${baseUrl}/${object.productId}`, object, config)
 }
-
 
 export default { getAll, create, remove, update, setToken }
