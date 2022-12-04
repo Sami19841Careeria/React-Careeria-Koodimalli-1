@@ -30,7 +30,7 @@ const remove = id => {
     const config = {
         headers: { Authorization: token },
     }
-    return axios.delete(`${baseUrl}/catid/${id}`, config)
+    return axios.delete(`${baseUrl}/${id}`, config)
 }
 
 
@@ -38,7 +38,7 @@ const update = (object) => {
     const config = {
         headers: { Authorization: token },
     }
-    return axios.put(`${baseUrl}/catid/${object.productId}`, object, config)
+    return axios.put(`${baseUrl}/${object.productId}`, object, config)
 }
 
 
