@@ -102,3 +102,15 @@
     transform: rotate(360deg);
   }
 }
+
+.edit {
+  background-color: chocolate;
+  border-style: solid;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 50px;
+  border-radius: 30px;
+  padding-left: 10%;
+  padding-right: 10%;
+
+}
