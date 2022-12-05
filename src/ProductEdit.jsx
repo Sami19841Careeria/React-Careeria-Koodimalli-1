@@ -14,6 +14,9 @@ const ProductEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessage
 
     const [newUnitPrice, setNewUnitPrice] = useState(muokattavaProduct.unitPrice)
     const [newUnitsInStock, setNewUnitsInStock] = useState(muokattavaProduct.unitsInStock)
+    const [newDiscontinued, setNewDiscontinued] = useState(muokattavaProduct.discontinued)
+    const [newSupplier, setNewSupplier] = useState(muokattavaProduct.supplier)
+    const [newCategory, setNewCategory] = useState(muokattavaProduct.category)
 
 
 // onSubmit tapahtumankäsittelijä funktio
@@ -23,11 +26,15 @@ const handleSubmit = (event) => {
     var newProduct = {
         productId: newProductId,
         productName: newProductName,
-        // supplierId: newSupplierId,
-        // categoryId: newCategoryId,
+        supplierId: newSupplierId,
+        categoryId: newCategoryId,
         quantityPerUnit: newQuantityPerUnit,
         unitPrice: newUnitPrice,
-        unitsInStock: newUnitsInStock
+        unitsInStock: newUnitsInStock,
+        discontinued: newDiscontinued,
+        supplier: newSupplier,
+        category: newCategory
+
     }    
 
     ProductService.update(newProduct)
@@ -70,14 +77,16 @@ const handleSubmit = (event) => {
                 <input type="text" value={newProductName} placeholder="Product Name"
                     onChange={({ target }) => setNewProductName(target.value)} />
             </div>
-            {/* <div>
+            <div>
                 <label>Supplier ID</label>
-                <input type="text" value={newSupplierId} disabled />
+                <input type="text" value={newSupplierId} placeholder="Supplier ID"  
+                onChange={({ target }) => setNewSupplierId(target.value)} />
             </div>
             <div>
                 <label>Category ID</label>
-                <input type="text" value={newCategoryId} disabled />
-            </div> */}
+                <input type="text" value={newCategoryId} placeholder="Category ID" 
+                onChange={({ target }) => setNewCategoryId(target.value)} />
+            </div>
             <div>
                 <label>Quantity Per Unit</label>
                 <input type="text" value={newQuantityPerUnit} placeholder="Quantity Per Unit"
@@ -92,6 +101,21 @@ const handleSubmit = (event) => {
                 <label>Units In Stock</label>
                 <input type="text" value={newUnitsInStock} placeholder="Units In Stock"
                     onChange={({ target }) => setNewUnitsInStock(target.value)} />
+            </div>
+            <div>
+                <label>Discontinued</label>
+                <input type="text" value={newDiscontinued} placeholder="Discontinued"
+                    onChange={({ target }) => setDiscontinued(target.value)} />
+            </div>
+            <div>
+                <label>Supplier Name</label>
+                <input type="text" value={newSupplier} placeholder="Supplier Name"
+                    onChange={({ target }) => setSupplier(target.value)} />
+            </div>
+            <div>
+                <label>Category Name</label>
+                <input type="text" value={newCategory} placeholder="Category Name"
+                    onChange={({ target }) => setCategory(target.value)} />
             </div>
   
          <input type='submit' value='save' />
