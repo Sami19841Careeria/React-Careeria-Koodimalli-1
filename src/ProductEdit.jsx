@@ -23,8 +23,8 @@ const handleSubmit = (event) => {
     var newProduct = {
         productId: newProductId,
         productName: newProductName,
-        supplierId: newSupplierId,
-        categoryId: newCategoryId,
+        // supplierId: newSupplierId,
+        // categoryId: newCategoryId,
         quantityPerUnit: newQuantityPerUnit,
         unitPrice: newUnitPrice,
         unitsInStock: newUnitsInStock
@@ -70,14 +70,14 @@ const handleSubmit = (event) => {
                 <input type="text" value={newProductName} placeholder="Product Name"
                     onChange={({ target }) => setNewProductName(target.value)} />
             </div>
-            <div>
+            {/* <div>
                 <label>Supplier ID</label>
                 <input type="text" value={newSupplierId} disabled />
             </div>
             <div>
                 <label>Category ID</label>
                 <input type="text" value={newCategoryId} disabled />
-            </div>
+            </div> */}
             <div>
                 <label>Quantity Per Unit</label>
                 <input type="text" value={newQuantityPerUnit} placeholder="Quantity Per Unit"
