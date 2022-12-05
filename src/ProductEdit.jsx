@@ -105,17 +105,17 @@ const handleSubmit = (event) => {
             <div>
                 <label>Discontinued</label>
                 <input type="text" value={newDiscontinued} placeholder="Discontinued"
-                    onChange={({ target }) => setDiscontinued(target.value)} />
+                    onChange={({ target }) => setNewDiscontinued(target.value)} />
             </div>
             <div>
                 <label>Supplier Name</label>
                 <input type="text" value={newSupplier} placeholder="Supplier Name"
-                    onChange={({ target }) => setSupplier(target.value)} />
+                    onChange={({ target }) => setNewSupplier(target.value)} />
             </div>
             <div>
                 <label>Category Name</label>
                 <input type="text" value={newCategory} placeholder="Category Name"
-                    onChange={({ target }) => setCategory(target.value)} />
+                    onChange={({ target }) => setNewCategory(target.value)} />
             </div>
   
          <input type='submit' value='save' />
