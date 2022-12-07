@@ -32,8 +32,6 @@ const handleSubmit = (event) => {
         unitPrice: newUnitPrice,
         unitsInStock: newUnitsInStock,
         discontinued: newDiscontinued,
-        supplier: newSupplier,
-        category: newCategory
 
     }    
 
@@ -53,7 +51,7 @@ const handleSubmit = (event) => {
 
       })
       .catch(error => {
-        setMessage(error)
+        setMessage(error.message)
         setIsPositive(false)
         setShowMessage(true)
 
