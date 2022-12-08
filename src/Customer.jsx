@@ -31,7 +31,7 @@ const deleteCustomer = (customer) => {
             }
         )
         .catch(error => {
-            setMessage(error)
+            setMessage(error.message)
             setIsPositive(false)
             setShowMessage(true)
             window.scrollBy(0, -10000) // Scrollataan ylös jotta nähdään alert :)

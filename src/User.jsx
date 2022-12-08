@@ -60,7 +60,7 @@ const deleteUser = (user) => {
     <div className='userDiv'>
         
        <h4 onClick={() => setShowDetails(true)}>
-           {user.userId} , {user.FirstName} , {user.LastName} , {user.email} , {user.accessLevelId}
+           {user.userId} , {user.firstname} , {user.lastname} , {user.email} , {user.accesslevelId} , {user.username}
         </h4>
 
        {showDetails && <div className="userDetails">
@@ -84,10 +84,10 @@ const deleteUser = (user) => {
                     <tbody>
                         <tr>
                             <td>{user.userId}</td>
-                            <td>{user.FirstName}</td>
+                            <td>{user.firstname}</td>
                             <td>{user.LastName}</td>
                             <td>{user.email}</td>
-                            <td>{user.accessLevelId}</td>
+                            <td>{user.accesslevelId}</td>
                         </tr>
                     </tbody>
                 </table></div>}

@@ -8,11 +8,11 @@ const UserEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessage, m
 // Komponentin tilan määritys
 
 const [newUserId, setNewUserId] = useState(muokattavaUser.userId)
-const [newFirstname, setNewFirstname] = useState(muokattavaUser.firstName)
-const [newLastname, setNewLastname] = useState(muokattavaUser.lastName)
+const [newFirstname, setNewFirstname] = useState(muokattavaUser.firstname)
+const [newLastname, setNewLastname] = useState(muokattavaUser.lastname)
 const [newEmail, setNewEmail] = useState(muokattavaUser.email)
 const [newAccesslevelId, setNewAccesslevelId] = useState(2)
-const [newUsername, setNewUsername] = useState(muokattavaUser.userName)
+const [newUsername, setNewUsername] = useState(muokattavaUser.username)
 const [newPassword, setNewPassword] = useState(muokattavaUser.password)
 
 
