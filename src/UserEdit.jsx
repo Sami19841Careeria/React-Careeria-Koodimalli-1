@@ -20,19 +20,19 @@ const [newPassword, setNewPassword] = useState(muokattavaUser.password)
 const handleSubmit = (event) => {
     event.preventDefault()
     var newUser = {
-      // userId: newUserId,
-      firstname: newFirstname,
-      lastname: newLastname,
+      userId: newUserId,
+      Firstname: newFirstname,
+      Lastname: newLastname,
       email: newEmail,
-      // accesslevelId: parseInt(newAccesslevelId),
-      username: newUsername,
+      accesslevelId: parseInt(newAccesslevelId),
+      Username: newUsername,
       password: md5(newPassword) // Salataan md5 kirjaston metodilla
   }
     
     UserService.update(newUser)
     .then(response => {
       if (response.status === 200) {
-       setMessage("Edited User: " + newUser.firstname)
+       setMessage("Edited User: " + newUser.Firstname)
        setIsPositive(true)
        setShowMessage(true)
       
@@ -61,10 +61,10 @@ const handleSubmit = (event) => {
        <h2>User Edit</h2>
 
        <form onSubmit={handleSubmit}>
-            {/* <div>
+            <div>
                 <label>User ID</label>
                 <input type="text" value={newUserId} disabled/>
-            </div> */}
+            </div>
             <div>
             <label>First Name</label>
                 <input type="text" value={newFirstname} placeholder="First name"
@@ -80,11 +80,11 @@ const handleSubmit = (event) => {
                 <input type="email" value={newEmail} placeholder="Email"
                     onChange={({ target }) => setNewEmail(target.value)} />
             </div>
-            {/* <div>
+            <div>
             <label>Access Level</label>
                 <input type="number" value={newAccesslevelId} placeholder="Access level"
                     onChange={({ target }) => setNewAccesslevelId(target.value)} />
-            </div> */}
+            </div>
             <div>
             <label>User Name</label>
                 <input type="text" value={newUsername} placeholder="Username"
