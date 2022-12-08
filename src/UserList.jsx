@@ -30,7 +30,7 @@ const handleSearchInputChange = (event) => {
     setSearch(event.target.value.toLowerCase())
 }
 
-const editUsers = (user) => {
+const editUser = (user) => {
   setMuokattavaUser(user)
   setMuokkaustila(true)
 }
