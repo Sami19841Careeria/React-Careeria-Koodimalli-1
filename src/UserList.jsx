@@ -8,6 +8,7 @@ const UserList = ({setMessage, setIsPositive, setShowMessage}) => {
 
 // Komponentin tilojen ja sitä muuttavien set metodien määritys, sekä alustaminen.
 const [users, setUsers] = useState([])
+const [showUsers, setShowUsers] = useState(false)
 const [lisäystila, setLisäystila] = useState(false)
 const [muokkaustila, setMuokkaustila] = useState(false)
 const [reload, reloadNow] = useState(false)
