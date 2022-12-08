@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 import UserService from './services/User'
 import UserAdd from './UserAdd'
 import UserEdit from './UserEdit'
+import User from './User'
 
 const UserList = ({setMessage, setIsPositive, setShowMessage}) => {
 
@@ -34,62 +35,44 @@ const editUsers = (user) => {
   setMuokkaustila(true)
 }
 
-  return (
-        <>
-           <h1><nobr style={{ cursor: 'pointer' }}
+return (
+    <>
+        <h1><nobr style={{ cursor: 'pointer' }}
                 onClick={() => setShowUsers(!showUsers)}>Users</nobr>
 
                 {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h1>
-            {lisäystila && <UserAdd setLisäystila={setLisäystila} 
-            setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />}
 
-            
-            {muokkaustila && <UserEdit setMuokkaustila={setMuokkaustila} 
+                {!lisäystila && !muokkaustila &&
+                <input placeholder="Search by Last name" value={search} onChange={handleSearchInputChange} />
+                }
+
+                {lisäystila && <UserAdd setLisäystila={setLisäystila} 
+                setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
+                />}
+
+                {muokkaustila && <UserEdit setMuokkaustila={setMuokkaustila} 
                 setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
                 muokattavaUser={muokattavaUser}
                 />}
 
-            {!lisäystila && !muokkaustila &&
-            <input placeholder="Search by Last Name" value={search} onChange={handleSearchInputChange} />
-            }
+        {
+            !lisäystila && !muokkaustila && showUsers && users && users.map(u =>
+              {
+                const lowerCaseName = u.userName.toLowerCase()
+                if (lowerCaseName.indexOf(search) > -1) {
+                    return(
+                <User key={u.userId} user={u} reloadNow={reloadNow} reload={reload}
+                setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
+                editUser={editUser}
+                />
+              )
+                    }
+                  }
+            )
+        }
 
-            {!lisäystila && !muokkaustila &&
-            <table id="userTable">
-                <thead>
-                    <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
-                        <th>Accesslevel</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-        
-                {showUsers && users && users.map(u =>
-                {
-                    const lowerCaseName = u.lastname.toLowerCase()
-                    if (lowerCaseName.indexOf(search) > -1) {
-                        return(
-                            <tr key={u.userId}>
-                                <td>{u.firstname}</td>
-                                <td>{u.lastname}</td>
-                                <td>{u.email}</td>
-                                <td>{u.accesslevelId}</td>
-                            </tr>
-                            
-                                )
-                            }
-                        }
-                    )
-                }
-
-                </tbody>
-
-            </table>
-            }
-         </>
-        )
+    </>
+  )
     }
 
 export default UserList
