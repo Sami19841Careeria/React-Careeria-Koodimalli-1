@@ -118,7 +118,7 @@ const editUser = (user) => {
             {
                 !lisäystila && !muokkaustila && showUsers && users && users.map(u =>
                   {
-                    const lowerCaseName = u.username.toLowerCase()
+                    const lowerCaseName = u.UserName.toLowerCase()
                     if (lowerCaseName.indexOf(search) > -1) {
                         return(
                     <User key={u.userId} user={u} reloadNow={reloadNow} reload={reload}
