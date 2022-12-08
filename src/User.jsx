@@ -67,7 +67,7 @@ const deleteUser = (user) => {
 
                 <h3>{user.username}</h3>
 
-                <button onClick={() => deleteUser(user)}>Delete</button>
+                {/* <button onClick={() => deleteUser(user)}>Delete</button> */}
                 <button onClick={() => editUser(user)}>Edit</button>
 
                 <table>
