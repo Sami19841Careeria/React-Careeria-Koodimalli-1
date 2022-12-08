@@ -24,7 +24,7 @@ const handleSubmit = (event) => {
       firstname: newFirstname,
       lastname: newLastname,
       email: newEmail,
-      accesslevelId: parseInt(newAccesslevelId),
+      // accesslevelId: parseInt(newAccesslevelId),
       username: newUsername,
       password: md5(newPassword) // Salataan md5 kirjaston metodilla
   }
@@ -80,11 +80,11 @@ const handleSubmit = (event) => {
                 <input type="email" value={newEmail} placeholder="Email"
                     onChange={({ target }) => setNewEmail(target.value)} />
             </div>
-            <div>
+            {/* <div>
             <label>Access Level</label>
                 <input type="number" value={newAccesslevelId} placeholder="Access level"
                     onChange={({ target }) => setNewAccesslevelId(target.value)} />
-            </div>
+            </div> */}
             <div>
             <label>User Name</label>
                 <input type="text" value={newUsername} placeholder="Username"
