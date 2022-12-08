@@ -20,6 +20,7 @@ const [newPassword, setNewPassword] = useState(muokattavaUser.password)
 const handleSubmit = (event) => {
     event.preventDefault()
     var newUser = {
+      userId: newUserId,
       firstname: newFirstname,
       lastname: newLastname,
       email: newEmail,
@@ -31,7 +32,7 @@ const handleSubmit = (event) => {
     UserService.update(newUser)
     .then(response => {
       if (response.status === 200) {
-       setMessage("Edited User: " + newUser.username)
+       setMessage("Edited User: " + newUser.firstname)
        setIsPositive(true)
        setShowMessage(true)
       
@@ -65,26 +66,32 @@ const handleSubmit = (event) => {
                 <input type="text" value={newUserId} disabled/>
             </div>
             <div>
+            <label>First Name</label>
                 <input type="text" value={newFirstname} placeholder="First name"
                     onChange={({ target }) => setNewFirstname(target.value)} required />
             </div>
             <div>
+            <label>Last Name</label>
                 <input type="text" value={newLastname} placeholder="Last name"
                     onChange={({ target }) => setNewLastname(target.value)} required />
             </div>
             <div>
+            <label>Email</label>
                 <input type="email" value={newEmail} placeholder="Email"
                     onChange={({ target }) => setNewEmail(target.value)} />
             </div>
             <div>
+            <label>Access Level</label>
                 <input type="number" value={newAccesslevelId} placeholder="Access level"
                     onChange={({ target }) => setNewAccesslevelId(target.value)} />
             </div>
             <div>
+            <label>User Name</label>
                 <input type="text" value={newUsername} placeholder="Username"
                     onChange={({ target }) => setNewUsername(target.value)} />
             </div>
             <div>
+            <label>Password</label>
                 <input type="password" value={newPassword} placeholder="Password"
                     onChange={({ target }) => setNewPassword(target.value)} />
             </div>
