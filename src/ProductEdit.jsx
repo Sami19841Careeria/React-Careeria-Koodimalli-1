@@ -15,8 +15,6 @@ const ProductEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessage
     const [newUnitPrice, setNewUnitPrice] = useState(muokattavaProduct.unitPrice)
     const [newUnitsInStock, setNewUnitsInStock] = useState(muokattavaProduct.unitsInStock)
     const [newDiscontinued, setNewDiscontinued] = useState(muokattavaProduct.discontinued)
-    const [newSupplier, setNewSupplier] = useState(muokattavaProduct.supplier)
-    const [newCategory, setNewCategory] = useState(muokattavaProduct.category)
 
 
 // onSubmit tapahtumankäsittelijä funktio

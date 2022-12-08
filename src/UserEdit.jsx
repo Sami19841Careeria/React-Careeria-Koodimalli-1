@@ -31,7 +31,7 @@ const handleSubmit = (event) => {
     UserService.update(newUser)
     .then(response => {
       if (response.status === 200) {
-       setMessage("Edited User: " + newUser.userName)
+       setMessage("Edited User: " + newUser.username)
        setIsPositive(true)
        setShowMessage(true)
       
@@ -44,7 +44,7 @@ const handleSubmit = (event) => {
 
       })
       .catch(error => {
-        setMessage(error)
+        setMessage(error.message)
         setIsPositive(false)
         setShowMessage(true)
 
