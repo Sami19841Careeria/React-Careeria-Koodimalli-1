@@ -48,6 +48,30 @@
 
 }
 
+.productDetails {
+  background-color: chocolate;
+  border-style: solid;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 50px;
+  border-radius: 30px;
+  padding-left: 10%;
+  padding-right: 10%;
+
+}
+
+.userDetails {
+  background-color: chocolate;
+  border-style: solid;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 50px;
+  border-radius: 30px;
+  padding-left: 10%;
+  padding-right: 10%;
+
+}
+
 .posts {
   margin: auto;
   background-color: aqua;

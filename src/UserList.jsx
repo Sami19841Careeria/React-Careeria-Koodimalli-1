@@ -35,103 +35,104 @@ const editUser = (user) => {
   setMuokkaustila(true)
 }
 
-  return (
-        <>
-           <h1><nobr style={{ cursor: 'pointer' }}
-                onClick={() => setShowUsers(!showUsers)}>Users</nobr>
+//   return (
+//         <>
+//            <h1><nobr style={{ cursor: 'pointer' }}
+//                 onClick={() => setShowUsers(!showUsers)}>Users</nobr>
 
-                {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h1>
-            {lisäystila && <UserAdd setLisäystila={setLisäystila} 
-            setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />}
+//                 {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h1>
+//             {lisäystila && <UserAdd setLisäystila={setLisäystila} 
+//             setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />}
 
             
-            {muokkaustila && <UserEdit setMuokkaustila={setMuokkaustila} 
-                setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
-                muokattavaUser={muokattavaUser}
-                />}
+//             {muokkaustila && <UserEdit setMuokkaustila={setMuokkaustila} 
+//                 setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
+//                 muokattavaUser={muokattavaUser}
+//                 />}
 
-            {!lisäystila && !muokkaustila &&
-            <input placeholder="Search by Last Name" value={search} onChange={handleSearchInputChange} />
-            }
+//             {!lisäystila && !muokkaustila &&
+//             <input placeholder="Search by Last Name" value={search} onChange={handleSearchInputChange} />
+//             }
 
-            {!lisäystila && !muokkaustila &&
-            <table id="userTable">
-                <thead>
-                    <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
-                        <th>Accesslevel</th>
-                        <button onClick={() => deleteUser()}>Delete</button>
-                        <button onClick={() => editUser()}>Edit</button>
-                    </tr>
-                </thead>
-                <tbody>
+//             {!lisäystila && !muokkaustila &&
+//             <table id="userTable">
+//                 <thead>
+//                     <tr>
+//                         <th>Firstname</th>
+//                         <th>Lastname</th>
+//                         <th>Email</th>
+//                         <th>Accesslevel</th>
+// //                         <button onClick={() => deleteUser()}>Delete</button>
+//                         <button onClick={() => editUser()}>Edit</button>
+//                     </tr>
+//                 </thead>
+//                 <tbody>
 
         
-                {showUsers && users && users.map(u =>
-                {
-                    const lowerCaseName = u.lastname.toLowerCase()
+//                 {showUsers && users && users.map(u =>
+//                 {
+//                     const lowerCaseName = u.lastname.toLowerCase()
+//                     if (lowerCaseName.indexOf(search) > -1) {
+//                         return(
+//                             <tr key={u.userId}>
+//                                 <td>{u.firstname}</td>
+//                                 <td>{u.lastname}</td>
+//                                 <td>{u.email}</td>
+//                                 <td>{u.accesslevelId}</td>
+//                             </tr>
+                            
+//                                 )
+//                             }
+//                         }
+//                     )
+//                 }
+
+//                 </tbody>
+
+//             </table>
+//             }
+//          </>
+//         )
+//     }
+
+    return (
+        <>
+            <h1><nobr style={{ cursor: 'pointer' }}
+                    onClick={() => setShowUsers(!showUsers)}>Users</nobr>
+    
+                    {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h1>
+    
+                    {!lisäystila && !muokkaustila &&
+                    <input placeholder="Search by Last name" value={search} onChange={handleSearchInputChange} />
+                    }
+    
+                    {lisäystila && <UserAdd setLisäystila={setLisäystila} 
+                    setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
+                    />}
+    
+                    {muokkaustila && <UserEdit setMuokkaustila={setMuokkaustila} 
+                    setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
+                    muokattavaUser={muokattavaUser}
+                    />}
+    
+            {
+                !lisäystila && !muokkaustila && showUsers && users && users.map(u =>
+                  {
+                    const lowerCaseName = u.username.toLowerCase()
                     if (lowerCaseName.indexOf(search) > -1) {
                         return(
-                            <tr key={u.userId}>
-                                <td>{u.firstname}</td>
-                                <td>{u.lastname}</td>
-                                <td>{u.email}</td>
-                                <td>{u.accesslevelId}</td>
-                            </tr>
-                            
-                                )
-                            }
+                    <User key={u.userId} user={u} reloadNow={reloadNow} reload={reload}
+                    setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
+                    editUser={editUser}
+                    />
+                  )
                         }
-                    )
-                }
-
-                </tbody>
-
-            </table>
+                      }
+                )
             }
-         </>
-        )
-    }
-
-    // return (
-    //     <>
-    //         <h1><nobr style={{ cursor: 'pointer' }}
-    //                 onClick={() => setShowUsers(!showUsers)}>Users</nobr>
     
-    //                 {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h1>
-    
-    //                 {!lisäystila && !muokkaustila &&
-    //                 <input placeholder="Search by Last name" value={search} onChange={handleSearchInputChange} />
-    //                 }
-    
-    //                 {lisäystila && <UserAdd setLisäystila={setLisäystila} 
-    //                 setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
-    //                 />}
-    
-    //                 {muokkaustila && <UserEdit setMuokkaustila={setMuokkaustila} 
-    //                 setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
-    //                 muokattavaUser={muokattavaUser}
-    //                 />}
-    
-    //         {
-    //             !lisäystila && !muokkaustila && showUsers && users && users.map(u =>
-    //               {
-    //                 const lowerCaseName = u.username.toLowerCase()
-    //                 if (lowerCaseName.indexOf(search) > -1) {
-    //                     return(
-    //                 <User key={u.userId} user={u} reloadNow={reloadNow} reload={reload}
-    //                 setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
-    //                 editUser={editUser}
-    //                 />
-    //               )
-    //                     }
-    //                   }
-    //             )
-    //         }
-    
-    //     </>
-    //   )
+        </>
+      )
+}
 
 export default UserList
