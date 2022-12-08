@@ -62,8 +62,6 @@ const editUser = (user) => {
 //                         <th>Lastname</th>
 //                         <th>Email</th>
 //                         <th>Accesslevel</th>
-// //                         <button onClick={() => deleteUser()}>Delete</button>
-//                         <button onClick={() => editUser()}>Edit</button>
 //                     </tr>
 //                 </thead>
 //                 <tbody>
@@ -79,6 +77,8 @@ const editUser = (user) => {
 //                                 <td>{u.lastname}</td>
 //                                 <td>{u.email}</td>
 //                                 <td>{u.accesslevelId}</td>
+// //                              <button onClick={() => deleteUser()}>Delete</button>
+//                                 <button onClick={() => editUser()}>Edit</button>
 //                             </tr>
                             
 //                                 )
