@@ -59,9 +59,9 @@ const deleteProduct = (product) => {
   return (
     <div className='productDiv'>
         
-       <h4 onClick={() => setShowDetails(!showDetails)}>
+       {/* <h4 onClick={() => setShowDetails(!showDetails)}>
            {product.productName} , {product.country}
-        </h4>
+        </h4> */}
 
        {showDetails && <div className="productDetails">
 
