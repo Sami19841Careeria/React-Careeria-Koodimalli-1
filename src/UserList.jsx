@@ -37,9 +37,9 @@ const editUsers = (user) => {
   return (
         <>
            <h1><nobr style={{ cursor: 'pointer' }}
-                onClick={() => setShowUsers(!showUsers)}>Users</nobr>
+                onClick={() => setShowUsers(!showUsers)}>Users</nobr></h1>
 
-                {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h1>
+                {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}
             {lisäystila && <UserAdd setLisäystila={setLisäystila} 
             setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />}
 
@@ -67,7 +67,7 @@ const editUsers = (user) => {
                 <tbody>
 
         
-                {users && users.map(u =>
+                {showUsers && users && users.map(u =>
                 {
                     const lowerCaseName = u.lastname.toLowerCase()
                     if (lowerCaseName.indexOf(search) > -1) {
