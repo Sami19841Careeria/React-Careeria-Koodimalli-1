@@ -60,7 +60,7 @@ const deleteProduct = (product) => {
     <div className='productDiv'>
         
        <h4 onClick={() => setShowDetails(!showDetails)}>
-           {product.productName} , {product.country}
+           {product.productName}
         </h4>
 
        {showDetails && <div className="productDetails">
@@ -74,13 +74,11 @@ const deleteProduct = (product) => {
                     <thead>
                         <tr>
                             <th>Product Name</th>
-                            <th>Country</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>{product.productName}</td>
-                            <td>{product.country}</td>
                         </tr>
                     </tbody>
                 </table></div>}

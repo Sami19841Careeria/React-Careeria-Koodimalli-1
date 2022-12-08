@@ -9,13 +9,13 @@ const User = ({user, editUser, setIsPositive, setMessage, setShowMessage, reload
 const [showDetails, setShowDetails] = useState(false)
 
 const deleteUser = (user) => {
-    let vastaus = window.confirm(`Remove User ${user.userName}`)
+    let vastaus = window.confirm(`Remove User ${user.username}`)
 
     if (vastaus === true) {
     UserService.remove(user.userId)
     .then(res => {
         if (res.status === 200) {
-        setMessage(`Successfully removed user ${user.userName}`)
+        setMessage(`Successfully removed user ${user.username}`)
         setIsPositive(true)
         setShowMessage(true)
         window.scrollBy(0, -10000) // Scrollataan ylös jotta nähdään alert :)
@@ -60,12 +60,12 @@ const deleteUser = (user) => {
     <div className='userDiv'>
         
        <h4 onClick={() => setShowDetails(true)}>
-           {user.firstName} , {user.lastName} , {user.email} , {user.accesslevel}
+           {user.userId} , {user.FirstName} , {user.LastName} , {user.email} , {user.accessLevelId}
         </h4>
 
        {showDetails && <div className="userDetails">
 
-                <h3>{user.username}</h3>
+                <h3>{user.firstname}</h3>
 
                 <button onClick={() => deleteUser(user)}>Delete</button>
                 <button onClick={() => editUser(user)}>Edit</button>
@@ -73,6 +73,7 @@ const deleteUser = (user) => {
                 <table>
                     <thead>
                         <tr>
+                            <th>User ID</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
@@ -82,10 +83,11 @@ const deleteUser = (user) => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{user.firstName}</td>
-                            <td>{user.lastName}</td>
+                            <td>{user.userId}</td>
+                            <td>{user.FirstName}</td>
+                            <td>{user.LastName}</td>
                             <td>{user.email}</td>
-                            <td>{user.accesslevel}</td>
+                            <td>{user.accessLevelId}</td>
                         </tr>
                     </tbody>
                 </table></div>}
