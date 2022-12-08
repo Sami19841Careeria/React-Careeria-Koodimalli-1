@@ -30,7 +30,7 @@ const handleSearchInputChange = (event) => {
     setSearch(event.target.value.toLowerCase())
 }
 
-const editUsers = (user) => {
+const editUser = (user) => {
   setMuokattavaUser(user)
   setMuokkaustila(true)
 }
@@ -62,8 +62,8 @@ const editUsers = (user) => {
                         <th>Lastname</th>
                         <th>Email</th>
                         <th>Accesslevel</th>
-                        <button>Delete</button>
-                        <button>Edit</button>
+                        <button onClick={() => deleteUser()}>Delete</button>
+                        <button onClick={() => editUser()}>Edit</button>
                     </tr>
                 </thead>
                 <tbody>
