@@ -2,7 +2,7 @@ import './App.css'
 import React, {useState} from 'react'
 import UserService from './services/User'
 
-// props on nimeltään User
+// props on nimeltään user
 const User = ({user, editUser, setIsPositive, setMessage, setShowMessage, reload, reloadNow}) => {
 
 // Komponentin tilan määritys
@@ -31,7 +31,7 @@ const deleteUser = (user) => {
             }
         )
         .catch(error => {
-            setMessage(error)
+            setMessage(error.message)
             setIsPositive(false)
             setShowMessage(true)
             window.scrollBy(0, -10000) // Scrollataan ylös jotta nähdään alert :)
@@ -59,7 +59,7 @@ const deleteUser = (user) => {
   return (
     <div className='userDiv'>
         
-       <h4 onClick={() => setShowDetails(!showDetails)}>
+       <h4 onClick={() => setShowDetails(true)}>
            {user.userId} , {user.userName}
         </h4>
 

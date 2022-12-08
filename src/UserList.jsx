@@ -37,14 +37,13 @@ const editUsers = (user) => {
   return (
         <>
            <h1><nobr style={{ cursor: 'pointer' }}
-                onClick={() => setShowUsers(!showUsers)}>Users</nobr></h1>
+                onClick={() => setShowUsers(!showUsers)}>Users</nobr>
 
-                {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}
+                {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h1>
             {lisäystila && <UserAdd setLisäystila={setLisäystila} 
             setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />}
 
             
-
             {muokkaustila && <UserEdit setMuokkaustila={setMuokkaustila} 
                 setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
                 muokattavaUser={muokattavaUser}
