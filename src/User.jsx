@@ -73,7 +73,7 @@ const deleteUser = (user) => {
                 <table>
                     <thead>
                         <tr>
-                            <th>User ID</th>
+                            {/* <th>User ID</th> */}
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email</th>
@@ -83,7 +83,7 @@ const deleteUser = (user) => {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{user.userId}</td>
+                            {/* <td>{user.userId}</td> */}
                             <td>{user.firstname}</td>
                             <td>{user.lastname}</td>
                             <td>{user.email}</td>

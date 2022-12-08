@@ -20,7 +20,7 @@ const [newPassword, setNewPassword] = useState(muokattavaUser.password)
 const handleSubmit = (event) => {
     event.preventDefault()
     var newUser = {
-      userId: newUserId,
+      // userId: newUserId,
       firstname: newFirstname,
       lastname: newLastname,
       email: newEmail,
@@ -61,10 +61,10 @@ const handleSubmit = (event) => {
        <h2>User Edit</h2>
 
        <form onSubmit={handleSubmit}>
-            <div>
+            {/* <div>
                 <label>User ID</label>
                 <input type="text" value={newUserId} disabled/>
-            </div>
+            </div> */}
             <div>
             <label>First Name</label>
                 <input type="text" value={newFirstname} placeholder="First name"
