@@ -42,7 +42,7 @@ const logout = () => {
       {!loggedInUser && <Login setMessage={setMessage} setIsPositive={setIsPositive} 
                 setShowMessage={setShowMessage} setLoggedInUser={setLoggedInUser} />}
 
-{/* {loggedInUser && */}
+{loggedInUser &&
       <Router>        
           <Navbar bg="dark" variant="dark">
             <Nav className="mr-auto">
@@ -76,7 +76,7 @@ const logout = () => {
            
       </Router>
 
-    {/* } */}
+    }
           
       </div>
   )
