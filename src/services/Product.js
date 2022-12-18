@@ -1,7 +1,7 @@
 import axios from "axios"
 
-//const baseUrl = "https://localhost:7083/api/customers"
-const baseUrl = "https://northwindbackend.azurewebsites.net/api/products"
+const baseUrl = "https://localhost:7083/api/products"
+//const baseUrl = "https://northwindbackend.azurewebsites.net/api/products"
 
 let token = null
 
@@ -22,7 +22,10 @@ const getAll = () => {
 
 
 const create = newProduct => {
-    return axios.post(baseUrl, newProduct)
+    const config = {
+        headers: { Authorization: token },
+    }
+    return axios.post(baseUrl, newProduct, config)
 }
 
 

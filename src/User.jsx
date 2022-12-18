@@ -8,6 +8,8 @@ const User = ({user, editUser, setIsPositive, setMessage, setShowMessage, reload
 // Komponentin tilan määritys
 const [showDetails, setShowDetails] = useState(false)
 
+
+
 const deleteUser = (user) => {
     let vastaus = window.confirm(`Remove User ${user.username}`)
 
@@ -60,12 +62,12 @@ const deleteUser = (user) => {
     <div className='userDiv'>
         
        <h4 onClick={() => setShowDetails(true)}>
-           {user.firstname} {user.lastname}
+           {user.firstName} {user.lastName}
         </h4>
 
        {showDetails && <div className="userDetails">
 
-                <h3>{user.firstname}</h3>
+                <h3>{user.firstName}</h3>
 
                 <button onClick={() => deleteUser(user)}>Delete</button>
                 <button onClick={() => editUser(user)}>Edit</button>
@@ -84,8 +86,8 @@ const deleteUser = (user) => {
                     <tbody>
                         <tr>
                             <td>{user.userId}</td>
-                            <td>{user.firstname}</td>
-                            <td>{user.lastname}</td>
+                            <td>{user.firstName}</td>
+                            <td>{user.lastName}</td>
                             <td>{user.email}</td>
                             <td>{user.accesslevelId}</td>
                         </tr>

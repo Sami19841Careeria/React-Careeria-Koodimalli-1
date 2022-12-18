@@ -16,6 +16,10 @@ const [reload, reloadNow] = useState(false)
 const [muokattavaUser, setMuokattavaUser] = useState(false)
 const [search, setSearch] = useState("")
 
+
+
+
+
 // UseEffect ajetaan aina alussa kerran
 useEffect(() => {
   UserService.getAll()
@@ -35,66 +39,8 @@ const editUser = (user) => {
   setMuokkaustila(true)
 }
 
-//   return (
-//         <>
-//            <h1><nobr style={{ cursor: 'pointer' }}
-//                 onClick={() => setShowUsers(!showUsers)}>Users</nobr>
-
-//                 {!lisäystila && <button className="nappi" onClick={() => setLisäystila(true)}>Add new</button>}</h1>
-//             {lisäystila && <UserAdd setLisäystila={setLisäystila} 
-//             setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage} />}
-
-            
-//             {muokkaustila && <UserEdit setMuokkaustila={setMuokkaustila} 
-//                 setIsPositive={setIsPositive} setMessage={setMessage} setShowMessage={setShowMessage}
-//                 muokattavaUser={muokattavaUser}
-//                 />}
-
-//             {!lisäystila && !muokkaustila &&
-//             <input placeholder="Search by Last Name" value={search} onChange={handleSearchInputChange} />
-//             }
-
-//             {!lisäystila && !muokkaustila &&
-//             <table id="userTable">
-//                 <thead>
-//                     <tr>
-//                         <th>Firstname</th>
-//                         <th>Lastname</th>
-//                         <th>Email</th>
-//                         <th>Accesslevel</th>
-//                     </tr>
-//                 </thead>
-//                 <tbody>
-
-        
-//                 {showUsers && users && users.map(u =>
-//                 {
-//                     const lowerCaseName = u.lastname.toLowerCase()
-//                     if (lowerCaseName.indexOf(search) > -1) {
-//                         return(
-//                             <tr key={u.userId}>
-//                                 <td>{u.firstname}</td>
-//                                 <td>{u.lastname}</td>
-//                                 <td>{u.email}</td>
-//                                 <td>{u.accesslevelId}</td>
-// //                              <button onClick={() => deleteUser()}>Delete</button>
-//                                 <button onClick={() => editUser()}>Edit</button>
-//                             </tr>
-                            
-//                                 )
-//                             }
-//                         }
-//                     )
-//                 }
-
-//                 </tbody>
-
-//             </table>
-//             }
-//          </>
-//         )
-//     }
-
+const accesslevelId = localStorage.getItem("accesslevelId")
+// console.log(accesslevelId)
     return (
         <>
             <h1><nobr style={{ cursor: 'pointer' }}
@@ -115,10 +61,11 @@ const editUser = (user) => {
                     muokattavaUser={muokattavaUser}
                     />}
     
+    
             {
-                !lisäystila && !muokkaustila && showUsers && users && users.map(u =>
+                (accesslevelId === "2") && !lisäystila && !muokkaustila && showUsers && users && users.map(u =>
                   {
-                    const lowerCaseName = u.Username.toLowerCase()
+                    const lowerCaseName = u.userName.toLowerCase()
                     if (lowerCaseName.indexOf(search) > -1) {
                         return(
                     <User key={u.userId} user={u} reloadNow={reloadNow} reload={reload}
@@ -129,7 +76,7 @@ const editUser = (user) => {
                         }
                       }
                 )
-            }
+                    }
     
         </>
       )

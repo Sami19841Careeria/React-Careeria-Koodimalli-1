@@ -1,7 +1,7 @@
 import axios from "axios"
 
-//const baseUrl = "https://localhost:7083/api/users"
-const baseUrl = "https://northwindbackend.azurewebsites.net/api/users"
+const baseUrl = "https://localhost:7083/api/users"
+//const baseUrl = "https://northwindbackend.azurewebsites.net/api/users"
 
 let token = null
 
@@ -38,4 +38,4 @@ const update = (object) => {
 }
 
 
-export default { getAll, create, remove, update }
+export default { getAll, create, remove, update , setToken}

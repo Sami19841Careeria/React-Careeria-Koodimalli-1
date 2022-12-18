@@ -2,6 +2,7 @@ import './App.css'
 import React, {useState} from 'react'
 import UserService from './services/User'
 import md5 from 'md5'
+import { useEffect } from 'react'
 
 const UserAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage}) => {
 
@@ -14,18 +15,27 @@ const [newEmail, setNewEmail] = useState('')
 const [newAccesslevelId, setNewAccesslevelId] = useState(2)
 const [newUsername, setNewUsername] = useState('')
 const [newPassword, setNewPassword] = useState('')
+const [newConfirmPassword, setNewConfirmPassword] = useState('')
 
+const [validMatch, setValidMatch] = useState(false)
+
+useEffect(() => {
+  console.log(newPassword)
+  const match = newPassword === newConfirmPassword
+  setValidMatch(match)
+}, [newPassword, newConfirmPassword])
 
 // onSubmit tapahtumankäsittelijä funktio
 const handleSubmit = (event) => {
       event.preventDefault()
       var newUser = {
-        firstname: newFirstname,
-        lastname: newLastname,
+        firstName: newFirstname,
+        lastName: newLastname,
         email: newEmail,
         accesslevelId: parseInt(newAccesslevelId),
-        username: newUsername,
-        password: md5(newPassword) // Salataan md5 kirjaston metodilla
+        userName: newUsername,
+        password: md5(newPassword), // Salataan md5 kirjaston metodilla
+        confirmPassword: md5(newConfirmPassword)
     }
     
     console.log(newUser)
@@ -33,7 +43,7 @@ const handleSubmit = (event) => {
     UserService.create(newUser)
     .then(response => {
       if (response.status === 200) {
-       setMessage(`Added new User: ${newUser.firstname} ${newUser.lastname}`)
+       setMessage(`Added new User: ${newUser.firstName} ${newUser.lastName}`)
        setIsPositive(true)
        setShowMessage(true)
       
@@ -55,7 +65,6 @@ const handleSubmit = (event) => {
          }, 6000)
       })
     }
-
 
   return (
     <div id="addNew">
@@ -83,11 +92,17 @@ const handleSubmit = (event) => {
                     onChange={({ target }) => setNewUsername(target.value)} />
             </div>
             <div>
-                <input type="password" value={newPassword} placeholder="Password"
+                <input type="password" id="password" value={newPassword} placeholder="Password" required
                     onChange={({ target }) => setNewPassword(target.value)} />
             </div>
+            <div>
+                <input type="password" id="confirm_pwd" value={newConfirmPassword} placeholder="Confirm Password" required
+                    onChange={({ target }) => setNewConfirmPassword(target.value)} />
+            </div>
+          
             
-         <input type='submit' value='save' />
+         {/* <input type='submit' value='save' /> */}
+         <button disabled={newPassword !== newConfirmPassword  ? true : false}>Save</button>
          <input type='button' value='back' onClick={() => setLisäystila(false)} />
        </form>
 

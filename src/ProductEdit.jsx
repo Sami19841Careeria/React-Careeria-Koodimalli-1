@@ -29,7 +29,7 @@ const handleSubmit = (event) => {
         quantityPerUnit: newQuantityPerUnit,
         unitPrice: newUnitPrice,
         unitsInStock: newUnitsInStock,
-        discontinued: newDiscontinued,
+        //discontinued: newDiscontinued,
 
     }    
 
@@ -57,6 +57,11 @@ const handleSubmit = (event) => {
           setShowMessage(false)
          }, 6000)
       })
+    }
+
+    const handleChange = (e) => {
+      setNewDiscontinued(e.target.value)
+      console.warn(e.target.value)
     }
 
   return (
@@ -97,9 +102,16 @@ const handleSubmit = (event) => {
                     onChange={({ target }) => setNewUnitsInStock(target.value)} />
             </div>
             <div>
+                <span>
+                <label>Continued</label>
+                <input type="radio" value="not_discontinued" checked={newDiscontinued==="not_discontinued"} onChange={handleChange} />
+                  </span>
+            </div>
+            <div>
+                <span>
                 <label>Discontinued</label>
-                <input type="text" value={newDiscontinued} placeholder="Discontinued"
-                    onChange={({ target }) => setNewDiscontinued(target.value)} />
+                <input type="radio" value="discontinued" checked={newDiscontinued==="discontinued"} onChange={handleChange} />
+                  </span>
             </div>
   
          <input type='submit' value='save' />

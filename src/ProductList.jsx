@@ -1,6 +1,6 @@
 import './App.css'
 import React, {useState, useEffect} from 'react'
-import ProductServices from './services/Product'
+import ProductService from './services/Product'
 import Product from './Product'
 import ProductAdd from './ProductAdd'
 import ProductEdit from './ProductEdit'
@@ -20,10 +20,10 @@ const [search, setSearch] = useState("")
 useEffect(() => {
 
   const token = localStorage.getItem('token')
-        ProductServices
+        ProductService
             .setToken(token)
             
-  ProductServices.getAll()
+  ProductService.getAll()
   .then(data => {
     setProducts(data)
 })

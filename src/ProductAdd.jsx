@@ -2,6 +2,7 @@ import './App.css'
 import React, {useState} from 'react'
 import ProductService from './services/Product'
 
+
 const ProductAdd = ({setLisäystila, setIsPositive, setMessage, setShowMessage}) => {
 
 // Komponentin tilan määritys
@@ -14,7 +15,7 @@ const [newQuantityPerUnit, setNewQuantityPerUnit] = useState('')
 
 const [newUnitPrice, setNewUnitPrice] = useState('')
 const [newUnitsInStock, setNewUnitsInStock] = useState('')
-
+const [newDiscontinued, setNewDiscontinued] = useState(false)
 
 // onSubmit tapahtumankäsittelijä funktio
 const handleSubmit = (event) => {
@@ -26,12 +27,13 @@ const handleSubmit = (event) => {
         // categoryId: newCategoryId,
         quantityPerUnit: newQuantityPerUnit,
         unitPrice: newUnitPrice,
-        unitsInStock: newUnitsInStock
+        unitsInStock: newUnitsInStock,
+        // discontinued: newDiscontinued
     }
     
-    /*const token = localStorage.getItem('token')
-        CustomerService
-            .setToken(token)*/
+    // const token = localStorage.getItem('token')
+    //     ProductService
+    //         .setToken(token)
 
     ProductService.create(newProduct)
     .then(response => {
@@ -49,7 +51,7 @@ const handleSubmit = (event) => {
 
       })
       .catch(error => {
-        setMessage(error)
+        setMessage(error.message)
         setIsPositive(false)
         setShowMessage(true)
 
@@ -58,7 +60,10 @@ const handleSubmit = (event) => {
          }, 6000)
       })
     }
-
+    const handleChange = (e) => {
+      setNewDiscontinued(e.target.value)
+      console.warn(e.target.value)
+    }
 
   return (
     <div id="addNew">
@@ -81,6 +86,19 @@ const handleSubmit = (event) => {
                 <input type="text" value={newUnitsInStock} placeholder="Units In Stock"
                     onChange={({ target }) => setNewUnitsInStock(target.value)} />
             </div>
+            <div>
+                <span>
+                <label>Continued</label>
+                <input type="radio" value="not_discontinued" checked={newDiscontinued==="not_discontinued"} onChange={handleChange} />
+                  </span>
+            </div>
+            <div>
+                <span>
+                <label>Discontinued</label>
+                <input type="radio" value="discontinued" checked={newDiscontinued==="discontinued"} onChange={handleChange} />
+                  </span>
+            </div>
+                
   
          <input type='submit' value='save' />
          <input type='button' value='back' onClick={() => setLisäystila(false)} />
@@ -89,5 +107,6 @@ const handleSubmit = (event) => {
     </div>
   )
 }
+
 
 export default ProductAdd

@@ -8,11 +8,11 @@ const UserEdit = ({setMuokkaustila, setIsPositive, setMessage, setShowMessage, m
 // Komponentin tilan määritys
 
 const [newUserId, setNewUserId] = useState(muokattavaUser.userId)
-const [newFirstname, setNewFirstname] = useState(muokattavaUser.firstname)
-const [newLastname, setNewLastname] = useState(muokattavaUser.lastname)
+const [newFirstname, setNewFirstname] = useState(muokattavaUser.firstName)
+const [newLastname, setNewLastname] = useState(muokattavaUser.lastName)
 const [newEmail, setNewEmail] = useState(muokattavaUser.email)
-const [newAccesslevelId, setNewAccesslevelId] = useState(2)
-const [newUsername, setNewUsername] = useState(muokattavaUser.username)
+const [newAccesslevelId, setNewAccesslevelId] = useState(muokattavaUser.accesslevelId)
+const [newUsername, setNewUsername] = useState(muokattavaUser.userName)
 const [newPassword, setNewPassword] = useState(muokattavaUser.password)
 
 
@@ -21,18 +21,18 @@ const handleSubmit = (event) => {
     event.preventDefault()
     var newUser = {
       userId: newUserId,
-      Firstname: newFirstname,
-      Lastname: newLastname,
+      firstName: newFirstname,
+      lastName: newLastname,
       email: newEmail,
       accesslevelId: parseInt(newAccesslevelId),
-      Username: newUsername,
+      userName: newUsername,
       password: md5(newPassword) // Salataan md5 kirjaston metodilla
   }
     
     UserService.update(newUser)
     .then(response => {
       if (response.status === 200) {
-       setMessage("Edited User: " + newUser.Firstname)
+       setMessage("Edited User: " + newUser.firstName)
        setIsPositive(true)
        setShowMessage(true)
       
