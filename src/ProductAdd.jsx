@@ -28,7 +28,7 @@ const handleSubmit = (event) => {
         quantityPerUnit: newQuantityPerUnit,
         unitPrice: newUnitPrice,
         unitsInStock: newUnitsInStock,
-        // discontinued: newDiscontinued
+        discontinued: newDiscontinued
     }
     
     // const token = localStorage.getItem('token')
@@ -60,10 +60,13 @@ const handleSubmit = (event) => {
          }, 6000)
       })
     }
-    const handleChange = (e) => {
-      setNewDiscontinued(e.target.value)
-      console.warn(e.target.value)
-    }
+    // const handleChange = (e) => {
+    //   if(e.target.value === "discontinued"){
+    //     setNewDiscontinued(true)
+    //   } else{
+    //     setNewDiscontinued(false)
+    //   }
+    // }
 
   return (
     <div id="addNew">
@@ -89,13 +92,13 @@ const handleSubmit = (event) => {
             <div>
                 <span>
                 <label>Continued</label>
-                <input type="radio" value="not_discontinued" checked={newDiscontinued==="not_discontinued"} onChange={handleChange} />
+                <input type="radio" value={false} checked={newDiscontinued === false} onChange={e => setNewDiscontinued(e.target.value === "true")} />
                   </span>
             </div>
             <div>
                 <span>
                 <label>Discontinued</label>
-                <input type="radio" value="discontinued" checked={newDiscontinued==="discontinued"} onChange={handleChange} />
+                <input type="radio" value={true} checked={newDiscontinued === true} onChange={e => setNewDiscontinued(e.target.value === "true")} />
                   </span>
             </div>
                 
